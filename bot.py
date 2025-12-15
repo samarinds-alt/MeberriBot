@@ -505,9 +505,10 @@ async def main():
 
     # Render даёт порт через env-переменную
     PORT = int(os.getenv("PORT", "10000"))
-    service_name = os.getenv("RENDER_SERVICE_NAME", "MeberriBot")
     WEBHOOK_PATH = "/webhook"
-    WEBHOOK_URL = f"https://{service_name}.onrender.com{WEBHOOK_PATH}"
+    WEBHOOK_URL = os.getenv("WEBHOOK_URL")
+    if not WEBHOOK_URL:
+    raise ValueError("❌ Переменная окружения WEBHOOK_URL не задана!")
 
     print(f"ℹ️  Webhook URL: {WEBHOOK_URL}")
 
