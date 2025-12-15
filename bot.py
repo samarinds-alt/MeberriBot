@@ -508,7 +508,7 @@ async def main():
     WEBHOOK_PATH = "/webhook"
     WEBHOOK_URL = os.getenv("WEBHOOK_URL")
     if not WEBHOOK_URL:
-    raise ValueError("❌ Переменная окружения WEBHOOK_URL не задана!")
+        raise ValueError("❌ Переменная окружения WEBHOOK_URL не задана!")
 
     print(f"ℹ️  Webhook URL: {WEBHOOK_URL}")
 
